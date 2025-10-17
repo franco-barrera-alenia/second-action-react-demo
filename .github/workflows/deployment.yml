@@ -6,8 +6,11 @@ on:
       - main
 
   pull_request:
-    types: [opened]
+    types: [opened, reopened, edited]
     branches: [main]
+  
+  issues:
+    types: [opened, closed]
 
   workflow_dispatch:
 
@@ -51,3 +54,6 @@ jobs:
 
       - name: Deploy
         run: echo "Simulated deployment complete ....."
+
+      - name: Report issue event
+        run: echo "An issue was ${{ github.event.action }}"
