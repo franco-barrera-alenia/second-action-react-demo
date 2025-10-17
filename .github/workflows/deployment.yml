@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+      - dev-*
+      - feat/**
 
   pull_request:
     types: [opened, reopened, edited]
